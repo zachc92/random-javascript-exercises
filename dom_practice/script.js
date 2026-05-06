@@ -31,3 +31,50 @@ container.appendChild(innerContainer);
 innerContainer.appendChild(h1);
 innerContainer.appendChild(innerContainerText);
 
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener('contextmenu', (e) => {e.preventDefault()});
+    button.addEventListener("mousedown", (e) =>{
+        console.log(e.button);
+        e.stopPropagation();
+    })
+})
+
+// document.body.addEventListener('mousedown', () => console.log('the body was clicked'));
+
+let menu = document.querySelector('#menu');
+
+menu.addEventListener('click', (event) => {
+    let target = event.target;
+    console.log(event.target);
+    console.log(target.id);
+
+    switch(target.id) {
+        case 'home':
+            console.log('Home menu item was clicked');
+            break;
+        case 'dashboard':
+            console.log('Dashboard menu item was clicked');
+            break;
+        case 'report':
+            console.log('Report menu item was clicked');
+            break;
+    }
+});
+
+let btn3 = document.querySelector('.btn3');
+
+ btn3.addEventListener('click', function () {
+        alert('Mouse Clicked');
+ });
+
+let clickEvent = new Event('click');
+btn.dispatchEvent(clickEvent);
+
+menu.addEventListener('highlight')
+
+let event = new CustomEvent('highlight', {
+    detail: { backgroundColor: yellow }
+});
+btn3.dispatchEvent('highlight');
